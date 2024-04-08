@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handwritten Text Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Handwritten Text Recognition</h1>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="/upload">
+            <input type="file" name="file" accept="image/*">
+            <input type="submit" name="ocr1" value="Model 1">
+            <input type="submit" name="ocr2" value="Model 2">
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        
+        {% if result %}
+        <h2>RECOGNIZED TEXT</h2>
+        <ul>
+            {% for item in result %}
+                <li>{{ item.generated_text }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

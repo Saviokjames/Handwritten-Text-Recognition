@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwritten Text Recognition</title>
+    <style>
+        body {
+            background-image: url(../static/image/wallpaper.jpg);
+        }
+        .container {
+            text-align: center;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(216, 210, 210, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            border: 2px solid black;
+            margin: 20px;
+            width: 80%;
+            max-width: 90%;
+
+        }
+        h1 {
+            font-size: 3.5em;
+            color: #000000;
+        }
+        p {
+            font-size: 1.2em;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Handwritten Text Recognition</h1>
+        <p>Handwritten Text Recognition is the process of converting handwritten text into digital text. With our advanced Recognition technology, you can easily extract text from handwritten documents, images, and more.</p>
+        <a href="{{url_for('index')}}" class="btn">Get Started</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-image: url('../static/image/wallpaper.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #666;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Compare Results</h1>
+            <div>
+                <h2>Model 1</h2>
+                <ul>
+                    {% if results['model1'] %}
+                        {% for item in results['model1'] %}
+                            <li>{{ item.generated_text }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No result available</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div>
+                <h2>Model 2</h2>
+                <ul>
+                    {% if results['model2'] %}
+                        {% for item in results['model2'] %}
+                            <li>{{ item.generated_text }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No result available</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div>
+                <h2>Model 3</h2>
+                <ul>
+                    {% if results['model3'] %}
+                        {% for item in results['model3'] %}
+                            <li>{{ item.generated_text }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No result available</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

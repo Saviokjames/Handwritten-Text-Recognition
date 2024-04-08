@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handwritten Text Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Handwritten Text Recognition</h1>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="/index">
+            <input type="file" id="fileInput" name="file" accept="image/*" onchange="previewImage(event)">
+                <div class="image-preview" id="imagePreview"></div>
+            <input type="submit" name="ocr1" value="Model 1">
+            <input type="submit" name="ocr2" value="Model 2">
+            <input type="submit" name="ocr2" value="model 3">
+            
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        
+        <a href="/compare" style="text-decoration: none; display: inline-block; margin-top: 20px;">
+            <button style="padding: 10px 20px;
+                          background-color: #1774ee;
+                          color: white;
+                          border: none;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-right: 10px;
+                          margin-left: 250px;">Compare</button>
+        </a>
+        
+        
+        
+        
+    </div>
+</body>
+
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var imagePreview = document.getElementById('imagePreview');
+            var imgElement = document.createElement('img');
+            imgElement.src = reader.result;
+            imagePreview.innerHTML = '';
+            imagePreview.appendChild(imgElement);
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        }
+</script>
+
+
+</html>

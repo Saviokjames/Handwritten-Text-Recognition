@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('../static/image/wallpaper.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Light transparent background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px;
+            max-width: 80%;
+            text-align: center;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(245, 6, 6, 0.192); /* Slightly darker background for list items */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recognized text</h1>
+        <h2>Model 3</h2>
+        <ul>
+            {% if results['model3'] %}
+                {% for item in results['model3'] %}
+                    <li>{{ item.generated_text }}</li>
+                {% endfor %}
+            {% else %}
+                <li>No result available</li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>
